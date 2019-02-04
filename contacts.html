@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact Page</title>
+    <title>Contacts</title>
         <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -16,10 +17,10 @@
                     background-color:#7EC0EE;
                 }
                 h1 {
-                    font-family:"Arial Black", Gadget, Georgia,sans-serif;
+                    font-family:sans-serif, arial, 'Times New Roman', Times, serif;
                     color: black;
                     text-align: center;
-                    font-size: 50px;
+                    font-size: 60px;
                 }
                 #button-style {
                     background-color: black;
@@ -36,25 +37,21 @@
                     alert("First name must be filled out.");
                     return false;
                   }
-
                   var b = document.forms["myForm"]["lastName"].value;
                   if (b == "") {
                     alert("Last name must be filled out.");
                     return false;
                   }
-
                   var c = document.forms["myForm"]["address"].value;
                   if (c == "") {
                     alert("Address must be filled out.");
                     return false;
                   }
-
                   var d = document.forms["myForm"]["phone"].value;
                   if (d == "") {
                     alert("Phone number must be filled out.");
                     return false;
                   }
-
                   var e = document.forms["myForm"]["email"].value;
                   if (e == "") {
                     alert("Email must be filled out.");
@@ -87,12 +84,12 @@
         <div class="modal-body">
                 <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
                         <div class="form-group">
-                          <label for="inputFirstName">First Name</label>
+                          <label for="inputFirstName">First</label>
                           <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
                         </div>
 
                         <div class="form-group">
-                          <label for="inputLastNumber">Last Name</label>
+                          <label for="inputLastNumber">Last</label>
                           <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
                         </div>
 
@@ -125,54 +122,75 @@
         <table class="table">
                 <thead class="thead-dark">
                   <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
                     <th scope="col">Address</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
-                    <th scope="col">ID</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td>1</td>
                     <td>John</td>
                     <td>Smith</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>1</td>
+                    <td>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></td>
                   </tr>
                   <tr>
+                    <td>2</td>
                     <td>Ryan</td>
                     <td>Johnson</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>2</td>
+                    <td>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></td>
                   </tr>
                   <tr>
+                    <td>3</td>
                     <td>Amy</td>
                     <td>Robinson</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>3</td>
+                    <td>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></td>
                   </tr>
                   <tr>
+                    <td>4</td>
                     <td>Sophia</td>
                     <td>Rodriguez</td>
                     <td>-</td>
                     <td>-</td> 
                     <td>-</td>
-                    <td>4</td>
+                    <td>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></td>
                   </tr>
                   <tr>
+                    <td>5</td>
                     <td>Robert</td>
                     <td>Jones</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>5</td>
+                    <td>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></td>
                   </tr> 
                 </tbody>
               </table>

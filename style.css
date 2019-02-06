@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(126, 192, 238);
-  font-family: Rubik, Arial;
+  background-color: rgb(126, 192, 238) !important;
+  font-family: Rubik, Arial !important;
 }
 
 form {
@@ -14,12 +14,12 @@ h1 {
   text-align: center;
 }
 
-#overlay {
-  width: 80%;
-  margin: 3% auto;
-  height: 95vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 40px;
+#overlay {  
+  width: 80% !important;
+  margin: 3% auto !important;
+  height: 95vh !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 40px !important;
 }
 
 #logo {

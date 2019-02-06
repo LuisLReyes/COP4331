@@ -89,6 +89,52 @@ class Contact{
     }
 
     public function update(){
+        
+        // Create query
+        $query = 'UPDATE ' . 
+            $this->table_name . '
+            SET
+                FirstName = :FirstName,
+                LastName = :LastName,
+                Address = :Address,
+                PhoneNumber = :PhoneNumber,
+                Email = :Email,
+                Users_idUsers = :Users_idUsers
+            WHERE
+                idContacts = :idContacts';
+           
+        // Prepare statement
+        $stmt = $this->connection->prepare($query);
+
+        //Clean data
+        $this->Address = htmlspecialchars(strip_tags($this->Address));
+        $this->FirstName = htmlspecialchars(strip_tags($this->FirstName));
+        $this->LastName = htmlspecialchars(strip_tags($this->LastName));
+        $this->PhoneNumber = htmlspecialchars(strip_tags($this->PhoneNumber));
+        $this->Email = htmlspecialchars(strip_tags($this->Email));
+        $this->Users_idUsers = htmlspecialchars(strip_tags($this->Users_idUsers));
+        $this->idContacts = htmlspecialchars(strip_tags($this->idContacts));
+        printf("User ID Being Passed: %s.\n", $this->Users_idUsers);
+
+        //Bind Data
+        $stmt->bindParam(':FirstName', $this->FirstName);
+        $stmt->bindParam(':LastName', $this->LastName);
+        $stmt->bindParam(':Address', $this->Address);
+        $stmt->bindParam(':Email', $this->Email);
+        $stmt->bindParam(':PhoneNumber', $this->PhoneNumber);
+        $stmt->bindParam(':Users_idUsers', $this->Users_idUsers);
+        $stmt->bindParam(':idContacts', $this->idContacts);
+
+        //Execute query
+        if($stmt->execute()){
+            return true;
+        }
+
+        //Print error in case of failure
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+
 
     }
 

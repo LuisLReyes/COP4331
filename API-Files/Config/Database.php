@@ -4,7 +4,7 @@
 
         //Database Parameters 
         private $host = 'instance1.cmypksuf5hak.us-east-1.rds.amazonaws.com';
-        private $db_name = 'MainDB';
+        private $db_name = 'FinalDB';
         private $username = 'username';
         private $password = 'password';
         private $conn;

@@ -139,6 +139,30 @@ class Contact{
     }
 
     public function delete(){
+        // Create query
+        $query = 'DELETE FROM ' . $this->table_name . ' WHERE idContacts = :idContacts';
+
+        // Prepare statement
+        $stmt = $this->connection->prepare($query);
+
+        // Clean data
+        $this->idContacts = htmlspecialchars(strip_tags($this->idContacts));
+
+        // Bind Data
+        $stmt->bindParam(':idContacts', $this->idContacts);
+
+        //Execute query
+        if($stmt->execute()){
+            return true;
+        }
+
+        //Print error in case of failure
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+        
+
+
         
     }
 }

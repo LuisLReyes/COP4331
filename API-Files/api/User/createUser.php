@@ -22,15 +22,15 @@
     $user->FirstName = $data->FirstName;
     $user->LastName = $data->LastName;
     $user->UserName = $data->UserName;
-
+    $user->passwordHash = $data->passwordHash;
     // Create user
     if($user->create()){
-        echo json_encode(
-            array('message' => 'User Created')
+            http_response_code(200);
+        echo json_encode(array('message' => 'User Created')
         );
     }
     else {
-        echo json_encode(
-            array('message' => 'User Not Created')
+        http_response_code(400);
+        echo json_encode(array('message' => 'User Not Created')
         );
     }

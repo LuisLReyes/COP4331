@@ -5,22 +5,87 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+		
+	<!--bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> <!--out?-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> <!--out?-->
+        
+	
+	<script>
+		 function validateForm() {
+                  var a = document.forms["myForm"]["Username"].value;
+                  if (a == "") {
+                    alert("Username must be filled out.");
+                    return false;
+                  }
+                  var b = document.forms["myForm"]["Password"].value;
+                  if (b == "") {
+                    alert("Password must be filled out.");
+                    return false;
+                  }
+                }
+        </script>
 	
   </head>
   <body>
     <section id="overlay">
       <img src="pic.png" alt="Logo" id="logo">
 			<h1>Welcome</h1>
-      <form action="contacts.html" method="GET">
+      <form action="contacts.html" method="GET" id="loginpg">
         <label for="username">Username:</label>
 		<input id="username" name="username" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
 		<br>
         <label for="pw">Password:</label>
         <input id="pw" name="pw" type="password" required minlength="8" maxlength="15">
 		<br>
-		<input type ="button" onclick="CreateAccount(this.form)"value="Signup"/>
+		
+		<!--input type ="button" onclick="CreateAccount(this.form)"value="Signup"/-->
         <input type="submit" value="Submit">
+		
+		<!-- Create New Contact Button -->
+        <button type="button" data-toggle="modal" data-target="#exampleModal" id="button-style">
+        CreateAccount
+        </button>
       </form>
+	  <br>
+	  
+	  	<!-- Create New Contact Popup -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                        <div class="form-group">
+                          <label for="inputUsername">Username</label>
+                          <input type="username" class="form-control" id="inputUsername" aria-describedby="usernameHelp" placeholder="Enter Username" name="Username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="inputPassword">Password</label>
+                          <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password" name="Password" required minlength="8" maxlength="15">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal">Cancel</button>
+                            <input type="submit" id="button-style" value="Create">
+                        </div>
+                </form>
+        </div>
+			</div>
+			</div>
+		</div>
+	  
+	  
+	  
     </section>
   </body>
 </html>

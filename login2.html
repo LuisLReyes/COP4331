@@ -35,7 +35,8 @@
     <section id="overlay">
       <img src="pic.png" alt="Logo" id="logo">
 			<h1>Welcome</h1>
-      <form action="contacts.html" method="GET" id="loginpg">
+	<!--Log in form-->
+      <form action="http://mistfiner.xyz/API-Files/api/User/getUser.php?idUsers=1" method="post" id="loginpg">
         <label for="username">Username:</label>
 		<input id="username" name="username" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
 		<br>
@@ -46,14 +47,14 @@
 		<!--input type ="button" onclick="CreateAccount(this.form)"value="Signup"/-->
         <input type="submit" value="Submit">
 		
-		<!-- Create New Contact Button -->
+		<!-- Create Account Button -->
         <button type="button" data-toggle="modal" data-target="#exampleModal" id="button-style">
         CreateAccount
         </button>
       </form>
 	  <br>
 	  
-	  	<!-- Create New Contact Popup -->
+	  	<!-- Create New Account Popup -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -63,7 +64,8 @@
                 </button>
         </div>
         <div class="modal-body">
-                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+		<!--Creat New Account Form-->
+                <form name="myForm" action="http://mistfiner.xyz/API-Files/api/User/createUser.php" onsubmit="return validateForm()" method="post">
                         <div class="form-group">
                           <label for="inputUsername">Username</label>
                           <input type="username" class="form-control" id="inputUsername" aria-describedby="usernameHelp" placeholder="Enter Username" name="Username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">

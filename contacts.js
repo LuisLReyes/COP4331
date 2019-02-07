@@ -14,9 +14,15 @@ request.onload = function () {
       var td1 = '<td>'+JSON.stringify(Contact.FirstName)+'</td>';
       var td2 = '<td>'+JSON.stringify(Contact.LastName)+'</td>';
       var td3 = '<td>'+JSON.stringify(Contact.Address)+'</td>';
-      var td4 = '<td>'+JSON.stringify(Contact.Phone)+'</td>';
+      var td4 = '<td>'+JSON.stringify(Contact.PhoneNumber)+'</td>';
       var td5 = '<td>'+JSON.stringify(Contact.Email)+'</td>';
       
+      td1 = td1.replace(/['"]+/g, '');
+      td2 = td2.replace(/['"]+/g, '');
+      td3 = td3.replace(/['"]+/g, '');
+      td4 = td4.replace(/['"]+/g, '');
+      td5 = td5.replace(/['"]+/g, '');
+
       div.innerHTML += '<tr data-toggle="modal" data-target="#editModal" class="clickable">'+ td1 + td2 + td3 + td4 + td5 +'</tr>';
       
 

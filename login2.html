@@ -36,19 +36,7 @@
                    return o;
         };
 		 function validateForm2() {
-             /*
-                  var a = document.forms["myForm"]["Username"].value;
-                  if (a == "") {
-                    alert("Username must be filled out.");
-                    return false;
-                  }
-                  var b = document.forms["myForm"]["Password"].value;
-                  if (b == "") {
-                    alert("Password must be filled out.");
-                    return false;
-                  }
-              */
-                  //for login
+                 //for login
                  // console.log("testing");
                   var first= document.forms["first"]["UserName"].value;
                   var second = document.forms["first"]["passwordHash"].value;
@@ -60,7 +48,7 @@
                   var obj = {};
                   obj[name] = first2;
                   var name2 = second;
-                  obj[name2] =second;
+                  obj[name2] = second;
                   
                   var form_data=JSON.stringify({"UserName": name,
                                                "passwordHash" : name2
@@ -97,6 +85,70 @@
                   
                   
                 }
+				
+		//function for create user
+		function validateForm3() {
+                 // console.log("testing");
+                  var first= document.forms["myForm"]["inputUsername"].value;
+                  var second = document.forms["myForm"]["inputPassword"].value;
+				  var third = document.forms["myForm"]["FirstName"].value;
+				  var fourth = document.forms["myForm"]["LastName"].value;
+                  var first2 = first ;
+                  var first3 = second;
+		  var first4 = third;
+		  var first5 = fourth;
+                  console.log(first2);
+                  console.log(first3);
+		  console.log(first4);
+		  console.log(first5);
+                  var name = first2;
+                  var obj = {};
+                  obj[name] = first2;
+                  var name2 = second;
+                  obj[name2] =second;
+		  var name3 = third;
+                  obj[name2] = third;
+		  var name4 = fourth;
+                  obj[name2] = fourth;
+                  
+                  var form_data=JSON.stringify({"inputUsername": name,
+                                               "inputPassword" : name2,
+					       "FirstName" : name3,
+					        "LastName" : name4
+                                               });
+                  console.log(form_data);
+                                                   
+                 
+                  // submit form data to api
+                  $.ajax({
+                          url: "http://mistfiner.xyz/API-Files/api/User/createUser.php",
+                         type : "POST",
+                         contentType : 'application/json',
+                         data : form_data,
+                         success : function(result){
+                         console.log("I seem to get here but");
+                         // store jwt to cookie
+                       //  setCookie("token", result.token, 1);
+                         
+                         // show home page & tell the user it was a successful login
+                       //  showHomePage();
+                         alert("Account Creation SUCCSSFULLL. Please login!");
+                         location = 'login2.html';
+                         
+                         },
+                         error: function(xhr, resp, text){
+                         console.log("NOPE!");
+                         // on error, tell the user login has failed & empty the input boxes
+                         $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
+                         
+                         }
+                         });
+                         
+                         return false;
+                  
+                  
+                }
+				
     
         </script>
 	
@@ -119,8 +171,8 @@
 		<br>
 		
 		<!--input type ="button" onclick="CreateAccount(this.form)"value="Signup"/-->
-        <input type="submit" value="Submit">
-        <button type='submit' class='btn btn-primary'>Login</button>
+        <!--input type="submit" value="Submit"-->
+        <button type='submit' >Login</button>
 		
 		<!-- Create Account Button -->
         <button type="button" data-toggle="modal" data-target="#exampleModal" id="button-style">
@@ -140,24 +192,24 @@
         </div>
         <div class="modal-body">
 		<!--Creat New Account Form-->
-                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                <form name="myForm" id="myForm" onsubmit="return validateForm3()" method="post">
                         <div class="form-group">
                           <label for="inputUsername">Username</label>
-                          <input type="username" class="form-control" id="inputUsername" aria-describedby="usernameHelp" placeholder="Enter Username" name="Username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
+                          <input type="text" class="form-control" id="inputUsername" name="inputUsername" aria-describedby="usernameHelp" placeholder="Enter Username" name="Username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
                         </div>
 
                         <div class="form-group">
                           <label for="inputPassword">Password</label>
-                          <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password" name="Password" required minlength="8" maxlength="15">
+                          <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Enter Password" name="Password" required minlength="8" maxlength="15">
                         </div>
                         <div class="form-group">
                             <label for="FirstName">Firstname</label>
-                            <input type="text" class="form-control" name="FirstName" id="FirstName" required />
+                            <input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" required />
                         </div>
                         
                         <div class="form-group">
                             <label for="LastName">Lastname</label>
-                            <input type="text" class="form-control" name="LastName" id="LastName" required />
+                            <input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" required />
                         </div>
 
                         <div class="modal-footer">

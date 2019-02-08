@@ -8,14 +8,17 @@ request.onreadystatechange = function () {
         
         var json = JSON.parse(request.responseText);
         console.log(json.FirstName + ", " + json.LastName + ", " + json.Email + ", " + json.Address + ", " + json.PhoneNumber + ", " + json.Users_isUsers);
+                 
     }
 };
 
-var data = JSON.stringify({"FirstName": "Testing",
-                            "LastName": "AddContact",
-                            "Email": "asdf@gmail.com",
-                            "Address": "1234 Street St.",
-                            "PhoneNumber": 1234323,
-                            "Users_idUsers": 5});
+var data = JSON.stringify({"FirstName": "aaaa",
+                           "LastName": "Name",
+                           "Email": "asdf@gmail.com",
+                           "Address": "1234 Street St.",
+                           "PhoneNumber": 1234323,
+                           "Users_idUsers": 5});
 
-request.send(data);
+            console.log(data);
+                   
+request.send(data);                            

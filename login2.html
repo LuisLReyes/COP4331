@@ -5,18 +5,38 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-		
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
 	<!--bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> <!--out?-->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> <!--out?-->
         
 	
 	<script>
-		 function validateForm() {
+        $.fn.serializeObject = function(){
+            
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                   if (o[this.name] !== undefined) {
+                   if (!o[this.name].push) {
+                   o[this.name] = [o[this.name]];
+                   }
+                   o[this.name].push(this.value || '');
+                   } else {
+                   o[this.name] = this.value || '';
+                   }
+                   });
+                   return o;
+        };
+		 function validateForm2() {
+             /*
                   var a = document.forms["myForm"]["Username"].value;
                   if (a == "") {
                     alert("Username must be filled out.");
@@ -27,7 +47,57 @@
                     alert("Password must be filled out.");
                     return false;
                   }
+              */
+                  //for login
+                 // console.log("testing");
+                  var first= document.forms["first"]["UserName"].value;
+                  var second = document.forms["first"]["passwordHash"].value;
+                  var first2 = first ;
+                  var first3 = second;
+                  console.log(first2);
+                  console.log(first3);
+                  var name = first2;
+                  var obj = {};
+                  obj[name] = first2;
+                  var name2 = second;
+                  obj[name2] =second;
+                  
+                  var form_data=JSON.stringify({"UserName": name,
+                                               "passwordHash" : name2
+                                               });
+                  console.log(form_data);
+                                                   
+                 
+                  // submit form data to api
+                  $.ajax({
+                         url: "http://192.168.64.2/rest/api/login.php",
+                         type : "POST",
+                         contentType : 'application/json',
+                         data : form_data,
+                         success : function(result){
+                         console.log("I seem to get here but");
+                         // store jwt to cookie
+                       //  setCookie("token", result.token, 1);
+                         
+                         // show home page & tell the user it was a successful login
+                       //  showHomePage();
+                         alert("LOGIN SUCCSSFULLL!!");
+                         location = 'contacts.html';
+                         
+                         },
+                         error: function(xhr, resp, text){
+                         console.log("NOPE!");
+                         // on error, tell the user login has failed & empty the input boxes
+                         $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
+                         
+                         }
+                         });
+                         
+                         return false;
+                  
+                  
                 }
+    
         </script>
 	
   </head>
@@ -36,16 +106,21 @@
       <img src="pic.png" alt="Logo" id="logo">
 			<h1>Welcome</h1>
 	<!--Log in form-->
-      <form action="contacts.html" method="GET" id="loginpg">
-        <label for="username">Username:</label>
-		<input id="username" name="username" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
+    
+    <!-- This sends us to the next form-->
+    
+     <!-- <form action="contacts.html" method="GET" id="loginpg"> -->
+    <form name="first"  id="first" onsubmit="return validateForm2()" method="post">
+        <label for="UserName">Username:</label>
+		<input id="UserName" name="UserName" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
 		<br>
-        <label for="pw">Password:</label>
-        <input id="pw" name="pw" type="password" required minlength="8" maxlength="15">
+        <label for="passwordHash">Password:</label>
+        <input id="passwordHash" name="passwordHash" type="password" required minlength="4" maxlength="15">
 		<br>
 		
 		<!--input type ="button" onclick="CreateAccount(this.form)"value="Signup"/-->
         <input type="submit" value="Submit">
+        <button type='submit' class='btn btn-primary'>Login</button>
 		
 		<!-- Create Account Button -->
         <button type="button" data-toggle="modal" data-target="#exampleModal" id="button-style">
@@ -75,12 +150,25 @@
                           <label for="inputPassword">Password</label>
                           <input type="password" class="form-control" id="inputPassword" placeholder="Enter Password" name="Password" required minlength="8" maxlength="15">
                         </div>
+                        <div class="form-group">
+                            <label for="FirstName">Firstname</label>
+                            <input type="text" class="form-control" name="FirstName" id="FirstName" required />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="LastName">Lastname</label>
+                            <input type="text" class="form-control" name="LastName" id="LastName" required />
+                        </div>
 
                         <div class="modal-footer">
                             <button type="button" data-dismiss="modal">Cancel</button>
                             <input type="submit" id="button-style" value="Create">
                         </div>
                 </form>
+                
+                
+               
+                
         </div>
 			</div>
 			</div>

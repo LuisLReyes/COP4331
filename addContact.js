@@ -12,7 +12,7 @@ request.onreadystatechange = function () {
     }
 };
 
-var data = JSON.stringify({"FirstName": "aaaa",
+var data = JSON.stringify({"FirstName": "ok",
                            "LastName": "Name",
                            "Email": "asdf@gmail.com",
                            "Address": "1234 Street St.",

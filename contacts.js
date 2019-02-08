@@ -18,6 +18,9 @@ request.onload = function () {
       var td4 = '<td id="PhoneNumber'+id+'>'+JSON.stringify(Contact.PhoneNumber)+'</td>';
       var td5 = '<td id="Email'+id+'>'+JSON.stringify(Contact.Email)+'</td>';
       
+      var edi = document.getElementById('editModal');
+
+
       td1 = td1.replace(/['"]+/g, '');
       td2 = td2.replace(/['"]+/g, '');
       td3 = td3.replace(/['"]+/g, '');
@@ -26,10 +29,7 @@ request.onload = function () {
 
       div.innerHTML += '<tr id="contactRow' + id + '" "data-toggle="modal" data-target="#editModal" class="clickable">'+ td1 + td2 + td3 + td4 + td5 +'</tr>';
 
-      
-      
-
-
+ 
     });
   } else {
     console.log('error');

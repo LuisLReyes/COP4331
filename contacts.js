@@ -7,7 +7,7 @@ request.onload = function () {
   var data = JSON.parse(this.response);
   console.log(JSON.parse(this.response));
   if (request.status >= 200 && request.status < 400) {
-    data.forEach(Contact => {
+    data.data.forEach(Contact => {
       
 
       var div = document.getElementById('myTable');

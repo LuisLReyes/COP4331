@@ -1,7 +1,7 @@
 var request = new XMLHttpRequest();
 
 request.open('POST', 'http://mistfiner.xyz/API-Files/api/Contact/addContact.php', true);
-request.setRequestHeader("Content", "Application/json");
+request.setRequestHeader("Content:", "Application/json");
 
 request.onreadystatechange = function () {
     if (request.readyState === 4 && request.status === 200) {

@@ -1,7 +1,12 @@
 var request = new XMLHttpRequest();
 
 request.open('POST', 'http://mistfiner.xyz/API-Files/api/Contact/addContact.php', true);
-request.setRequestHeader("Content:", "Application/json");
+request.setRequestHeader("Content", "Application/json");
+
+request.setHeader("Access-Control-Allow-Origin", "*");
+request.setHeader("Access-Control-Allow-Credentials", "true");
+request.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+request.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 
 request.onreadystatechange = function () {
     if (request.readyState === 4 && request.status === 200) {

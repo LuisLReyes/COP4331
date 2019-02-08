@@ -17,9 +17,6 @@ request.onload = function () {
       var td3 = '<td id="Address'+id+'>'+JSON.stringify(Contact.Address)+'</td>';
       var td4 = '<td id="PhoneNumber'+id+'>'+JSON.stringify(Contact.PhoneNumber)+'</td>';
       var td5 = '<td id="Email'+id+'>'+JSON.stringify(Contact.Email)+'</td>';
-      
-      var edi = document.getElementById('editModal');
-
 
       td1 = td1.replace(/['"]+/g, '');
       td2 = td2.replace(/['"]+/g, '');

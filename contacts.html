@@ -180,7 +180,7 @@
         </div>
         
         <div class="modal-body">
-            <form name="myForm" action="https://www.hammerfall.xyz/API-Files/api/Contact/addContact.php" onsubmit="return validateForm()" method="post" id="myForm">
+            <form name="myForm" onsubmit="return validateForm() && submitContact()" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
                         <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">

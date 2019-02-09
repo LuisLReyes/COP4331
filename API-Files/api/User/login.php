@@ -59,7 +59,7 @@
         // set response code
        // http_response_code(401);
        // var_dump(http_response_code());
-        header('http/1.0 404 not found');
+        header('http/1.0 403 not found');
         var_dump(http_response_code());
         echo json_encode(array("message" => "login failed"));
     }

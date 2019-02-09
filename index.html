@@ -69,12 +69,13 @@
                          
                          // show home page & tell the user it was a successful login
                        //  showHomePage();
-                         alert("LOGIN SUCCSSFULLL!!");
+                        
                          location = 'contacts.html';
                          
                          },
                          error: function(xhr, resp, text){
                          console.log("NOPE!");
+				  alert("login credentials wrong");
                          // on error, tell the user login has failed & empty the input boxes
                          $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
                          
@@ -111,8 +112,8 @@
 		  var name4 = fourth;
                   obj[name2] = fourth;
                   
-                  var form_data=JSON.stringify({"inputUsername": name,
-                                               "inputPassword" : name2,
+                  var form_data=JSON.stringify({"UserName": name,
+                                               "passwordHash" : name2,
 					       "FirstName" : name3,
 					        "LastName" : name4
                                                });

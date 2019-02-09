@@ -15,8 +15,8 @@
   //  include_once 'config/Database.php';
     //include_once 'models/Users.php';
     use \Firebase\JWT\JWT;
-    include_once '../../config/Database.php';
-    include_once '../../models/Users.php';
+    include_once '../../Config/Database.php';
+    include_once '../../Models/Users.php';
     // Instantiate DB & connect
     
     $database = new database();

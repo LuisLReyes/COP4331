@@ -6,8 +6,8 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
            
 
-    include_once '../../config/Database.php';
-    include_once '../../models/Users.php';
+    include_once '../../Config/Database.php';
+    include_once '../../Models/Users.php';
 
  
    require __DIR__ . '/vendor/autoload.php';

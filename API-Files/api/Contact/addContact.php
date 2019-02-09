@@ -7,8 +7,8 @@
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
     
 
-    include_once '../../config/Database.php';
-    include_once '../../models/Contact.php';
+    include_once '../../Config/Database.php';
+    include_once '../../Models/Contact.php';
 
     // Instantiate DB & connect
     $database = new Database();

@@ -12,11 +12,11 @@ request.onreadystatechange = function () {
     }
 };
 
-var data = JSON.stringify({"FirstName": inputFirstName,
-                           "LastName": inputLastName,
-                           "Email": inputEmail,
-                           "Address": inputEmail,
-                           "PhoneNumber": inputPhoneNumber,
+var data = JSON.stringify({"FirstName": "yo",
+                           "LastName": "yo",
+                           "Email": "asdf@gmail.com",
+                           "Address": "c",
+                           "PhoneNumber": 1234323,
                            "Users_idUsers": 5}); 
 
 console.log(data);

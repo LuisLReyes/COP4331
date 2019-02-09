@@ -57,7 +57,7 @@
     else{
         
         // set response code
-        header('http/1.0 401 no autherization');
+        http_response_code(401);
        // var_dump(http_response_code());
        
         echo json_encode(array("message" => "login failed"));

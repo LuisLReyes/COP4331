@@ -22,7 +22,7 @@
     $database = new database();
     $db = $database->connect();
     // Instantiate user
-    $user = new user($db);
+    $user = new Users($db);
 
     //gets raw posted data
     $data = json_decode(file_get_contents("php://input"));

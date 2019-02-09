@@ -22,7 +22,7 @@
     $database = new database();
     $db = $database->connect();
     // Instantiate user
-    $user = new user($db);
+    $user = new Users($db);
 
     //gets raw posted data
     $data = json_decode(file_get_contents("php://input"));
@@ -57,7 +57,10 @@
     else{
         
         // set response code
-        http_response_code(401);
+       // http_response_code(401);
+       // var_dump(http_response_code());
+        header('http/1.0 403 not found');
+        var_dump(http_response_code());
         echo json_encode(array("message" => "login failed"));
     }
     ?>

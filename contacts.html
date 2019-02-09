@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contacts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!--<script src="addContact.js"></script> -->
+    <script src="contacts.js"></script>
+
+        <style>
+                body {
+                  background: linear-gradient(to bottom, #526c7d 0%,#5e7a8b 100%) no-repeat fixed 0 0;
+                }
+                h1 {
+                    font-family:'Times New Roman', Times, serif;
+                    color: white;
+                    text-align: center;
+                    font-size: 60px;
+                }
+                h5{
+                  font-family: 'Times New Roman', Times, serif;
+                  color: black;
+                  font-size: 35px;
+                }
+                #button-style {
+                    background-color: black;
+                }
+                table {
+                    background-color: white;
+                    border: 4px solid black;
+                }
+                #myInput {
+                    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+                    background-position: 10px 12px; /* Position the search icon */
+                    background-repeat: no-repeat; /* Do not repeat the icon image */
+                    width: 100%; /* Full-width */
+                    font-size: 16px; /* Increase font-size */
+                    padding: 12px 20px 12px 40px; /* Add some padding */
+                    border: 1px solid #ddd; /* Add a grey border */
+                    margin-bottom: 12px; /* Add some space below the input */
+                  }
+                  #myTable {
+                    border-collapse: collapse; /* Collapse borders */
+                    width: 100%; /* Full-width */
+                    border: 1px solid #ddd; /* Add a grey border */
+                    font-size: 18px; /* Increase font-size */
+                  }
+                  #myTable th, #myTable td {
+                    text-align: left; /* Left-align text */
+                    padding: 12px; /* Add padding */
+                  }
+                  #myTable tr {
+                    /* Add a bottom border to all table rows */
+                    border-bottom: 1px solid #ddd; 
+                  }
+                  #myTable tr.header, #myTable tr:hover {
+                    /* Add a grey background color to the table header and on hover */
+                    background-color: #f1f1f1;
+                  }
+                  #logout {
+                    background-color: black;
+                    position: absolute;
+                    top: 8px;
+                    right: 16px;
+                    font-size: 18px;
+                  }
+                  .clickable {
+                    cursor: pointer;
+                  }
+        </style>
+        <script>
+                function validateForm() {
+                  var a = document.forms["myForm"]["firstName"].value;
+                  if (a == "") {
+                    alert("First name must be filled out.");
+                    return false;
+                  }
+                  var b = document.forms["myForm"]["lastName"].value;
+                  if (b == "") {
+                    alert("Last name must be filled out.");
+                    return false;
+                  }
+                  var c = document.forms["myForm"]["address"].value;
+                  if (c == "") {
+                    alert("Address must be filled out.");
+                    return false;
+                  }
+                  var d = document.forms["myForm"]["phone"].value;
+                  if (d == "") {
+                    alert("Phone number must be filled out.");
+                    return false;
+                  }
+                  var e = document.forms["myForm"]["email"].value;
+                  if (e == "") {
+                    alert("Email must be filled out.");
+                    return false;
+                  }
+                }
+                function validateForm2() {
+                  var f = document.forms["editForm"]["firstName"].value;
+                  if (f == "") {
+                    alert("First name must be filled out.");
+                    return false;
+                  }
+                  var g = document.forms["editForm"]["lastName"].value;
+                  if (g == "") {
+                    alert("Last name must be filled out.");
+                    return false;
+                  }
+                  var h = document.forms["editForm"]["address"].value;
+                  if (h == "") {
+                    alert("Address must be filled out.");
+                    return false;
+                  }
+                  var i = document.forms["editForm"]["phone"].value;
+                  if (i == "") {
+                    alert("Phone number must be filled out.");
+                    return false;
+                  }
+                  var j = document.forms["editForm"]["email"].value;
+                  if (j == "") {
+                    alert("Email must be filled out.");
+                    return false;
+                  }
+                }
+                function myFunction() {
+					var input, filter, table, tr, td, i, ii;
+					input = document.getElementById("myInput");
+					filter = input.value.toUpperCase();
+					table = document.getElementById("myTable");
+					tr = table.querySelectorAll("tbody tr");
+					for (i = 1; i < tr.length; i++) {
+						var tds = tr[i].getElementsByTagName("td");
+						var found = false;
+						for (ii = 0; ii < tds.length && !found; ii++) {
+							if (tds[ii].textContent.toUpperCase().indexOf(filter) > -1) {
+								found = true;
+							break;
+							}
+						}
+					tr[i].style.display = found?"":"none";
+					}
+				}
+        </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div>
+            <h1>Contacts</h1>
+        </div>
+
+        <!-- Logout Button -->
+        <div>
+          <button type="button" class="btn btn-primary" id="logout" onclick="location.href='https://www.hammerfall.xyz/login2.html'">
+            Logout
+          </button>
+        </div>
+        
+        <!-- Create New Contact Button -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="button-style">
+        New
+        </button>
+  
+        <!-- Create New Contact Popup -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            
+              <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+            <form name="myForm" onsubmit="return validateForm() && submitContact()" method="post" id="myForm">
+                <div class="form-group">
+                        <label for="inputFirstName">First</label>
+                        <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="inputLastNumber">Last</label>
+                        <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inputAddress">Address</label>
+                          <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inputPhoneNumber">Phone Number</label>
+                          <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inputEmail">Email</label>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email">
+                      </div>
+
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <input type="submit" class="btn btn-primary" id="button-style" value="Add contact">
+                      </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+            <!-- Edit Contact Popup -->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                    <form name="editForm" onsubmit="return validateForm2()" method="post">
+                            <div class="form-group">
+                              <label for="inputFirstName">First</label>
+                              <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="inputLastNumber">Last</label>
+                              <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="inputPhoneNumber">Phone Number</label>
+                                <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email">
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <input type="submit" class="btn btn-primary" id="button-style" value="Add contact">
+                            </div>
+                    </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p> </p>
+      <!-- Contact List -->
+      <p> </p>
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by last name...">
+
+              <table id="myTable">
+                <tr class="header">
+                  <th style="width:20%;">First</th>
+                  <th style="width:20%;">Last</th>
+                  <th style="width:20%;">Address</th>
+                  <th style="width:20%;">Phone</th>
+                  <th style="width:20%;">Email</th>
+                  <th style="width:1%;"> </th>
+                </tr>
+                <tr id="contactOutput" data-toggle="modal" data-target="#editModal" class="clickable">
+                </tr>
+                <!--
+                <tr data-toggle="modal" data-target="#editModal" class="clickable">
+                  <td>2</td>
+                  <td>Ryan</td>
+                  <td>Johnson</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr data-toggle="modal" data-target="#editModal" class="clickable">
+                  <td>3</td>
+                  <td>Amy</td>
+                  <td>Robinson</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr data-toggle="modal" data-target="#editModal" class="clickable">
+                  <td>4</td>
+                  <td>Sophia</td>
+                  <td>Rodriguez</td>
+                  <td>-</td>
+                  <td>-</td> 
+                  <td>-</td>
+                </tr>
+                <tr data-toggle="modal" data-target="#editModal" class="clickable">
+                  <td>5</td>
+                  <td>Robert</td>
+                  <td>Jones</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              -->
+              </table>
+
+
+              <div id="root"></div>
+  
+</body>
+</html>

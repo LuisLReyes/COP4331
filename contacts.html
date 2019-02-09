@@ -74,36 +74,6 @@
                   }
         </style>
         <script>
-          function submitForm() {
-            var request = new XMLHttpRequest();
-
-            request.open('POST', 'http://mistfiner.xyz/API-Files/api/Contact/addContact.php', true);
-            request.setRequestHeader("Content-Type", "application/json");
-
-
-            var aa = document.forms["myForm"]["firstName"].value;
-            var bb = document.forms["myForm"]["lastName"].value;
-            var cc = document.forms["myForm"]["email"].value;
-            var dd = document.forms["myForm"]["address"].value;
-            var ee = document.forms["myForm"]["phone"].value;
-            
-            var data = JSON.stringify({"FirstName": aa,
-                                       "LastName": bb,
-                                       "Email": cc,
-                                       "Address": dd,
-                                       "PhoneNumber": ee,
-                                       "Users_idUsers": 5}); 
-
-console.log(data);
-                   
-request.send(data);
-
-
-
-          }
-           
-
-
                 function validateForm() {
                   var a = document.forms["myForm"]["firstName"].value;
                   if (a == "") {
@@ -189,7 +159,7 @@ request.send(data);
 
         <!-- Logout Button -->
         <div>
-          <button type="button" class="btn btn-primary" id="logout" onclick="location.href='http://mistfiner.xyz/login2.html'">
+          <button type="button" class="btn btn-primary" id="logout" onclick="location.href='https://www.hammerfall.xyz/login2.html'">
             Logout
           </button>
         </div>
@@ -210,7 +180,7 @@ request.send(data);
         </div>
         
         <div class="modal-body">
-            <form name="myForm" action="http://mistfiner.xyz/API-Files/api/Contact/addContact.php" onsubmit="return validateForm()" onsubmit="return submitForm()" method="post" id="myForm">
+            <form name="myForm" action="https://www.hammerfall.xyz/API-Files/api/Contact/addContact.php" onsubmit="return validateForm()" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
                         <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">

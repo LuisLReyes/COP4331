@@ -1,6 +1,6 @@
 var request = new XMLHttpRequest();
 
-request.open('POST', 'http://mistfiner.xyz/API-Files/api/Contact/addContact.php', true);
+request.open('POST', 'https://www.hammerfall.xyz/API-Files/api/Contact/addContact.php', true);
 request.setRequestHeader("Content-Type", "application/json");
 
 request.onreadystatechange = function () {

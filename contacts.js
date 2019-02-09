@@ -1,6 +1,6 @@
 var request = new XMLHttpRequest();
 
-request.open('GET', 'http://mistfiner.xyz/API-Files/api/Contact/getContacts.php?Users_idUsers=5', true);
+request.open('GET', 'https://www.hammerfall.xyz/API-Files/api/Contact/getContacts.php?Users_idUsers=5', true);
 request.onload = function () {
 
   // Begin accessing JSON data here

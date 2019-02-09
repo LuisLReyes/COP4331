@@ -1,10 +1,10 @@
 function submitContact() {
 
-var firstName = document.forms["myForm"]["firstName"].value;
-var lastName = document.forms["myForm"]["lastName"].value;
-var email = document.forms["myForm"]["email"].value;
-var address = document.forms["myForm"]["address"].value;
-var phone = document.forms["myForm"]["phone"].value;
+var firstName = document.forms["myForm"]["inputFirstName"].value;
+var lastName = document.forms["myForm"]["inputLastName"].value;
+var email = document.forms["myForm"]["inputEmail"].value;
+var address = document.forms["myForm"]["inputAddress"].value;
+var phone = document.forms["myForm"]["inputPhone"].value;
 
 var contact_data=JSON.stringify({    "FirstName": firstName,
                                      "LastName": lastName,
@@ -29,7 +29,7 @@ $.ajax({
    // show home page & tell the user it was a successful login
  //  showHomePage();
    alert("CONTACT CREATE SUCCSSFULLL!!");
-   location = 'contacts.html';
+   //location = 'contacts.html';
    
    },
    error: function(xhr, resp, text){

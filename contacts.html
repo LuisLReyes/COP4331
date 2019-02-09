@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <!--<script src="addContact.js"></script> -->
+    <script src="addContact.js"></script>
     <script src="contacts.js"></script>
 
         <style>
@@ -178,7 +178,7 @@
         </div>
         
         <div class="modal-body">
-            <form name="myForm" onsubmit="return validateForm() && submitContact()" method="post" id="myForm">
+            <form name="myForm" onsubmit="return validateForm()" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
                         <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">

@@ -75,6 +75,20 @@
                   }
         </style>
         <script>
+          var indexRow;
+          var check;
+          var bid;
+          $(document).on('click', 'button', function () {
+               indexRow = this.parentNode.parentNode.rowIndex;
+             check=  document.getElementById("myTable")
+              // alert(check);
+               
+               bid = this.id; // button ID
+               contactRowId = $(this).closest('tr').attr('id'); // table row ID
+               contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
+               alert(contactRowId);
+               });
+               
                 function validateForm() {
                   var a = document.forms["myForm"]["firstName"].value;
                   var b = document.forms["myForm"]["lastName"].value;

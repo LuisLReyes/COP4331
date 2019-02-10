@@ -128,6 +128,7 @@ function populate(id)
     
     alert("PRESSED");
 }
+/*
 $(document).on('click', 'button', function () {
                var indexRow = this.parentNode.parentNode.rowIndex;
              var check=  document.getElementById("myTable")
@@ -138,3 +139,4 @@ $(document).on('click', 'button', function () {
                contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
                alert(contactRowId);
                });
+               */

@@ -1,4 +1,4 @@
-
+function submitContact() {
 var request = new XMLHttpRequest();
 
 request.open('POST', 'https://www.hammerfall.xyz/API-Files/api/Contact/addContact.php', true);
@@ -12,14 +12,25 @@ request.onreadystatechange = function () {
          
     }
 };
+var teststring1 = document.forms["myForm"]["firstName"].value;
+var teststring2 = document.forms["myForm"]["lastName"].value;
+var teststring3 = document.forms["myForm"]["email"].value;
+var teststring4 = document.forms["myForm"]["address"].value;
+var teststring5 = document.forms["myForm"]["phone"].value;
 
-var data = JSON.stringify({"FirstName": "testtesttest",
-                           "LastName": "asdlkfj",
-                           "Email": "asdf@gmail.com",
-                           "Address": "c",
-                           "PhoneNumber": "1234323",
-                           "Users_idUsers": 5}); 
+var prepareddata = {"FirstName": teststring1,
+                    "LastName": teststring2,
+                    "Email": teststring3,
+                    "Address": teststring4,
+                    "PhoneNumber": teststring5,
+                    "Users_idUsers": 5};
+
+console.log(prepareddata);
+
+var data = JSON.stringify(prepareddata); 
+
 
 console.log(data);
                    
 request.send(data); 
+}

@@ -76,56 +76,33 @@
         <script>
                 function validateForm() {
                   var a = document.forms["myForm"]["firstName"].value;
-                  if (a == "") {
-                    alert("First name must be filled out.");
-                    return false;
-                  }
                   var b = document.forms["myForm"]["lastName"].value;
-                  if (b == "") {
-                    alert("Last name must be filled out.");
-                    return false;
-                  }
                   var c = document.forms["myForm"]["address"].value;
-                  if (c == "") {
-                    alert("Address must be filled out.");
-                    return false;
-                  }
                   var d = document.forms["myForm"]["phone"].value;
-                  if (d == "") {
-                    alert("Phone number must be filled out.");
-                    return false;
-                  }
                   var e = document.forms["myForm"]["email"].value;
-                  if (e == "") {
-                    alert("Email must be filled out.");
+                  if (a == "") {
+                    document.getElementById('submitCreateContact').disabled = true;
                     return false;
                   }
-                }
-                function validateForm2() {
-                  var f = document.forms["editForm"]["firstName"].value;
-                  if (f == "") {
-                    alert("First name must be filled out.");
+                  else if (b == "") {
+                    document.getElementById('submitCreateContact').disabled = true;
                     return false;
                   }
-                  var g = document.forms["editForm"]["lastName"].value;
-                  if (g == "") {
-                    alert("Last name must be filled out.");
+                  else if (c == "") {
+                    document.getElementById('submitCreateContact').disabled = true;
                     return false;
                   }
-                  var h = document.forms["editForm"]["address"].value;
-                  if (h == "") {
-                    alert("Address must be filled out.");
+                  else if (d == "") {
+                    document.getElementById('submitCreateContact').disabled = true;
                     return false;
                   }
-                  var i = document.forms["editForm"]["phone"].value;
-                  if (i == "") {
-                    alert("Phone number must be filled out.");
+                  else if (e == "") {
+                    document.getElementById('submitCreateContact').disabled = true;
                     return false;
                   }
-                  var j = document.forms["editForm"]["email"].value;
-                  if (j == "") {
-                    alert("Email must be filled out.");
-                    return false;
+                  else{
+                      document.getElementById('submitCreateContact').disabled = false;
+                    return true;
                   }
                 }
                 function myFunction() {
@@ -166,7 +143,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="button-style">
         New
         </button>
-  
+
         <!-- Create New Contact Popup -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -178,35 +155,35 @@
         </div>
         
         <div class="modal-body">
-            <form name="myForm" onsubmit="return validateForm()" method="post" id="myForm">
+            <form name="myForm" onsubmit="return submitContact()" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
-                        <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
+                        <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName" onkeyup="validateForm()">
                       </div>
 
                       <div class="form-group">
                         <label for="inputLastNumber">Last</label>
-                        <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
+                        <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName" onkeyup="validateForm()">
                       </div>
 
                       <div class="form-group">
                           <label for="inputAddress">Address</label>
-                          <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address">
+                          <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address" onkeyup="validateForm()">
                       </div>
 
                       <div class="form-group">
                           <label for="inputPhoneNumber">Phone Number</label>
-                          <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone">
+                          <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone" onkeyup="validateForm()">
                       </div>
 
                       <div class="form-group">
                           <label for="inputEmail">Email</label>
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email" onkeyup="validateForm()">
                       </div>
 
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <input type="submit" class="btn btn-primary" id="button-style" value="Add contact">
+                          <input type="submit" class="btn btn-primary" id="submitCreateContact" value="Add contact" disabled="disabled">
                       </div>
             </form>
         </div>

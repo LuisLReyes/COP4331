@@ -78,7 +78,7 @@
           var indexRow;
           var check;
           var bid;
-          function loadEditModal() {
+          $(".editModalButton").on('click', 'button', function () {
                indexRow = this.parentNode.parentNode.rowIndex;
              check=  document.getElementById("myTable")
               // alert(check);
@@ -87,8 +87,8 @@
                contactRowId = $(this).closest('tr').attr('id'); // table row ID
                contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
                alert(contactRowId);
-               };
-
+               });
+               
                 function validateForm() {
                   var a = document.forms["myForm"]["firstName"].value;
                   var b = document.forms["myForm"]["lastName"].value;

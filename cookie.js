@@ -39,7 +39,6 @@ function getId(addingContact){
                     else{
                         loadContacts(result.data);
                     }
-                    
                 console.log("ID of the currently logged in person: " + result.data.idUsers);
                 // store jwt to cookie
             

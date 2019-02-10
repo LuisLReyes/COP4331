@@ -164,7 +164,7 @@
         </div>
         
         <div class="modal-body">
-            <form name="myForm" onsubmit="return getId(true)" method="post" id="myForm">
+            <form name="myForm" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
                         <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName" onkeyup="validateForm()">
@@ -192,7 +192,7 @@
 
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <input type="submit" class="btn btn-primary" id="submitCreateContact" value="Add contact" disabled="disabled">
+                          <input type="button" class="btn btn-primary" id="submitCreateContact" value="Add contact" disabled="disabled" onclick="getId(true)">
                       </div>
             </form>
         </div>

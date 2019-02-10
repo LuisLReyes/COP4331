@@ -64,6 +64,12 @@
                          data : form_data,
                          success : function(result){
                          console.log("I seem to get here but");
+				 
+				 
+				 
+				 
+				 
+		        setCookie('token', result.token, 1);
                          // store jwt to cookie
                        //  setCookie("token", result.token, 1);
                          

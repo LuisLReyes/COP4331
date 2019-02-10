@@ -1,42 +1,39 @@
-<?php
-    // Headers
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
-    header('Access-Control-Allow-Methods: PUT');
-    header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, 
-    Access-Control-Allow-Methods, Authorization, X-Requested-With');
+function editContact(editid,userid) {
+    var request = new XMLHttpRequest();
+    
+    request.open('PUT', 'https://www.hammerfall.xyz/API-Files/api/Contact/updateContact.php', false);
+    request.setRequestHeader("Content-Type", "application/json");
+    
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+     
+            var json = JSON.stringify(request.responseText);
+            //console.log(json.inputFirstName + ", " + json.inputLastName + ", " + json.inputEmail + ", " + json.inputAddress + ", " + json.inputPhoneNumber + ", " + json.Users_isUsers);
+             
+        }
+    };
 
-    include_once '../../Config/Database.php';
-    include_once '../../Models/Contact.php';
-
-    // Instantiate DB & connect
-    $database = new Database();
-    $db = $database->connect();
-
-    // Instantiate contact
-    $contact = new Contact($db);
-
-    // Get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-
-    // Set ID to update
-    $contact->idContacts = $data->idContacts;
-
-    $contact->FirstName = $data->FirstName;
-    $contact->LastName = $data->LastName;
-    $contact->Email = $data->Email;
-    $contact->PhoneNumber = $data->PhoneNumber;
-    $contact->Address = $data->Address;
-    $contact->Users_idUsers = $data->Users_idUsers;
-
-    // Update contact
-    if($contact->update()){
-        echo json_encode(
-            array('message' => 'Contact Updated')
-        );
-    }
-    else {
-        echo json_encode(
-            array('message' => 'Contact Not Updated')
-        );
-    }
+    var teststring1 = document.forms["myForm"]["firstName"].value;
+    var teststring2 = document.forms["myForm"]["lastName"].value;
+    var teststring3 = document.forms["myForm"]["email"].value;
+    var teststring4 = document.forms["myForm"]["address"].value;
+    var teststring5 = document.forms["myForm"]["phone"].value; 
+    
+    var prepareddata = {  "idContacts" :editid,
+                        "FirstName": teststring1,
+                        "LastName": teststring2,
+                        "Email": teststring3,
+                        "Address": teststring4,
+                        "PhoneNumber": teststring5,
+                        "Users_idUsers" : userid};
+    
+    
+    
+    var data = JSON.stringify(prepareddata); 
+    
+    
+    console.log(data);
+                       
+    request.send(data);
+    location.reload();
+    }                             

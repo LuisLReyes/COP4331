@@ -78,16 +78,19 @@
           var indexRow;
           var check;
           var bid;
-          $(".editModalButton").on('click', 'button', function () {
+          $(document).ready(function() {
+              //alert("Document Ready!");
+          $(document).on("click", ".editModalButton", function () {
+              alert("button clicked!");
                indexRow = this.parentNode.parentNode.rowIndex;
-             check=  document.getElementById("myTable")
+             check=  document.getElementById("myTable");
               // alert(check);
                
                bid = this.id; // button ID
                contactRowId = $(this).closest('tr').attr('id'); // table row ID
                contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
                alert(contactRowId);
-               });
+               });});
                
                 function validateForm() {
                   var a = document.forms["myForm"]["firstName"].value;

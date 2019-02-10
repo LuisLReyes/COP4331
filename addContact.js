@@ -31,6 +31,6 @@ var data = JSON.stringify(prepareddata);
 
 
 console.log(data);
-alert("Check Console!");                   
+//alert("Check Console!");                   
 request.send(data); 
 }

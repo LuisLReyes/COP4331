@@ -20,3 +20,36 @@ function getCookie(name) {
 function eraseCookie(name) {
     document.cookie = name+'=; Max-Age=-99999999;';
 }
+function getId(addingContact){
+    var token = getCookie('token');
+        console.log("cheker");
+        console.log(token);
+        var form_data = JSON.stringify({ token:token });
+                        
+                        
+        $.ajax({
+                url: "https://www.hammerfall.xyz/API-Files/api/User/validate.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : form_data,
+                success : function(result){//response
+                    if(addingContact){
+                        submitContact(result.data);
+                    }
+                    else{
+                        loadContacts(result.data);
+                    }
+                    
+                console.log("ID of the currently logged in person: " + result.data.idUsers);
+                // store jwt to cookie
+            
+                },
+                error: function(xhr, resp, text){
+                console.log("NOPE!");
+                
+                // on error, tell the user login has failed & empty the input boxes
+                
+                
+                }
+                });
+}

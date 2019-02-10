@@ -107,31 +107,7 @@
                   }
                 }
                 function myFunction() {
-			var token = getCookie('token');
-                    console.log("cheker");
-                    console.log(token);
-                    var form_data = JSON.stringify({ token:token });
-                    
-                    
-                                                                                                                    $.ajax({
-                                                                                                                           url: "https://www.hammerfall.xyz/API-Files/api/User/validate.php",
-                                                                                                                           type : "POST",
-                                                                                                                           contentType : 'application/json',
-                                                                                                                           data : form_data,
-                                                                                                                           success : function(result){//response
-                                                                                                                           
-                                                                                                                           console.log(result.data.idUsers);
-                                                                                                                           // store jwt to cookie
-                                                                                                                       
-                                                                                                                           },
-                                                                                                                           error: function(xhr, resp, text){
-                                                                                                                           console.log("NOPE!");
-                                                                                                                           
-                                                                                                                           // on error, tell the user login has failed & empty the input boxes
-                                                                                                                          
-                                                                                                                           
-                                                                                                                           }
-                                                                                                                           });
+			
 			
 					var input, filter, table, tr, td, i, ii;
 					input = document.getElementById("myInput");
@@ -149,7 +125,13 @@
 						}
 					tr[i].style.display = found?"":"none";
 					}
-				}
+        }
+        
+        $(function(){
+          var temp = getId(false);
+          //loadContacts(temp);
+        });
+
         </script>
 </head>
 <body>
@@ -182,7 +164,7 @@
         </div>
         
         <div class="modal-body">
-            <form name="myForm" onsubmit="return submitContact()" method="post" id="myForm">
+            <form name="myForm" onsubmit="return getId(true)" method="post" id="myForm">
                 <div class="form-group">
                         <label for="inputFirstName">First</label>
                         <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName" onkeyup="validateForm()">

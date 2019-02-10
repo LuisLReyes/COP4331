@@ -1,6 +1,5 @@
-function submitContact() {
+function submitContact(cookieData) {
 var request = new XMLHttpRequest();
-
 request.open('POST', 'https://www.hammerfall.xyz/API-Files/api/Contact/addContact.php', true);
 request.setRequestHeader("Content-Type", "application/json");
 
@@ -24,7 +23,7 @@ var prepareddata = {"FirstName": teststring1,
                     "Email": teststring3,
                     "Address": teststring4,
                     "PhoneNumber": teststring5,
-                    "Users_idUsers": 5};
+                    "Users_idUsers": cookieData.idUsers};
 
 console.log(prepareddata);
 
@@ -32,6 +31,6 @@ var data = JSON.stringify(prepareddata);
 
 
 console.log(data);
-                   
+alert("Check Console!");                   
 request.send(data); 
 }

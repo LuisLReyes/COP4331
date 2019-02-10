@@ -18,6 +18,7 @@ var teststring3 = document.forms["myForm"]["email"].value;
 var teststring4 = document.forms["myForm"]["address"].value;
 var teststring5 = document.forms["myForm"]["phone"].value;
 
+
 var prepareddata = {"FirstName": teststring1,
                     "LastName": teststring2,
                     "Email": teststring3,

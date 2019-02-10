@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(126, 192, 238) !important;
-  font-family: Rubik, Arial !important;
+  background-color: rgb(230, 230, 230) !important;
+  font-family:'Times New Roman', Times, serif;
 }
 
 form {
@@ -10,20 +10,32 @@ form {
   overflow: auto;
 }
 
+/*#button-style {
+	background-color: yellow;
+	color: black;
+}*/
+
 h1 {
   text-align: center;
 }
 
 #overlay {  
-  width: 80% !important;
+  width: 30% !important;
   margin: 3% auto !important;
-  height: 95vh !important;
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  height: 80vh !important;
+  background-color: rgb(255, 255, 255) !important;
   border-radius: 40px !important;
+  /*opacity: 0.5 !important;*/
 }
 
 #logo {
   height: 200px;
+  display: block;
+  margin: auto;
+}
+
+#title {
+  height: 100px;
   display: block;
   margin: auto;
 }

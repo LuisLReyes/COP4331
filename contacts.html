@@ -13,7 +13,6 @@
                     <script src="contacts.js"></script>
                     <script src="deleteContact.js"></script>
                        <script src="updateContact.js"></script>
-                       <script src="fillUpdateModal.js"></script>
                     <style>
                         body {
                             background: linear-gradient(to bottom, #526c7d 0%,#5e7a8b 100%) no-repeat fixed 0 0;
@@ -82,7 +81,7 @@
                         $(document).ready(function() {
                                           //alert("Document Ready!");
                                           $(document).on("click", ".editModalButton", function () {
-                                                         alert("User ID: " + userId);
+                                                        
                                                          indexRow = this.parentNode.parentNode.rowIndex;
                                                          check=  document.getElementById("myTable");
                                                          // alert(check);
@@ -90,7 +89,7 @@
                                                          bid = this.id; // button ID
                                                          contactRowId = $(this).closest('tr').attr('id'); // table row ID
                                                          contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
-                                                         alert(contactRowId);
+                                                        
                                                          });});
                                                          
                                                          function validateForm() {
@@ -184,12 +183,12 @@
                         <div class="modal-body">
                             <form name="myForm" method="post" id="myForm">
                                 <div class="form-group">
-                                    <label for="inputFirstName">First</label>
+                                    <label for="inputFirstName">First Name</label>
                                     <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName" onkeyup="validateForm()">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="inputLastNumber">Last</label>
+                                    <label for="inputLastNumber">Last Name</label>
                                     <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName" onkeyup="validateForm()">
                                         </div>
                                 
@@ -230,33 +229,33 @@
                         <div class="modal-body">
                             <form name="editForm" onsubmit="return editContact(contactRowId,userId)" method="post">
                                 <div class="form-group">
-                                    <label for="editFirstName">First</label>
-                                    <input type="firstName" class="form-control" id="editFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="editLastName">Last</label>
-                                    <input type="lastNumber" class="form-control" id="editLastName" placeholder="Enter Last Name" name="lastName">
+                                    <label for="inputLastNumber">Last Name</label>
+                                    <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="editAddress">Address</label>
-                                    <input type="address" class="form-control" id="editAddress" placeholder="Enter Address" name="address">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="editPhoneNumber">Phone Number</label>
-                                    <input type="phoneNumber" class="form-control" id="editPhoneNumber" placeholder="Enter Phone Number" name="phone">
+                                    <label for="inputPhoneNumber">Phone Number</label>
+                                    <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="editEmail">Email</label>
-                                    <input type="email" class="form-control" id="editEmail" placeholder="Enter Email" name="email">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email">
                                         </div>
                                 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <input type="submit" class="btn btn-primary" id="button-style" value="Apply Changes">
+                                    <input type="submit" class="btn btn-primary" id="button-style" value="Update">
                                         </div>
                             </form>
                         </div>
@@ -266,12 +265,12 @@
             <p> </p>
             <!-- Contact List -->
             <p> </p>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by last name...">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
                 
                 <table id="myTable">
                     <tr class="header">
-                        <th style="width:18%;">First</th>
-                        <th style="width:18%;">Last</th>
+                        <th style="width:18%;">First Name</th>
+                        <th style="width:18%;">Last Name</th>
                         <th style="width:18%;">Address</th>
                         <th style="width:18%;">Phone</th>
                         <th style="width:18%;">Email</th>

@@ -13,6 +13,7 @@
                     <script src="contacts.js"></script>
                     <script src="deleteContact.js"></script>
                        <script src="updateContact.js"></script>
+                       <script src="fillUpdateModal.js"></script>
                     <style>
                         body {
                             background: linear-gradient(to right, #f09819, #edde5d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -229,28 +230,28 @@
                         <div class="modal-body">
                             <form name="editForm" onsubmit="return editContact(contactRowId,userId)" method="post">
                                 <div class="form-group">
-                                    <label for="inputFirstName">First Name</label>
-                                    <input type="firstName" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
+                                    <label for="editFirstName">First Name</label>
+                                    <input type="firstName" class="form-control" id="editFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name" name="firstName">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="inputLastNumber">Last Name</label>
-                                    <input type="lastNumber" class="form-control" id="inputLastNumber" placeholder="Enter Last Name" name="lastName">
+                                    <label for="editLastName">Last Name</label>
+                                    <input type="lastNumber" class="form-control" id="editLastName" placeholder="Enter Last Name" name="lastName">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="address" class="form-control" id="inputAddress" placeholder="Enter Address" name="address">
+                                    <label for="editAddress">Address</label>
+                                    <input type="address" class="form-control" id="editAddress" placeholder="Enter Address" name="address">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="inputPhoneNumber">Phone Number</label>
-                                    <input type="phoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Enter Phone Number" name="phone">
+                                    <label for="editPhoneNumber">Phone Number</label>
+                                    <input type="phoneNumber" class="form-control" id="editPhoneNumber" placeholder="Enter Phone Number" name="phone">
                                         </div>
                                 
                                 <div class="form-group">
-                                    <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" name="email">
+                                    <label for="editEmail">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" placeholder="Enter Email" name="email">
                                         </div>
                                 
                                 <div class="modal-footer">

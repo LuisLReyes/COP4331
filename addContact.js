@@ -30,7 +30,7 @@ function submitContact(cookieData) {
     var data = JSON.stringify(prepareddata); 
     
     
-    console.log(data);
+   // console.log(data);
     //alert("Check Console!");                   
     request.send(data); 
     location.reload();

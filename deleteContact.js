@@ -2,7 +2,7 @@ function deleteContact(deleteid) {
     if (confirm('Are you sure you want to delete this contact?')) {
     var request = new XMLHttpRequest();
     
-    request.open('DELETE', 'https://www.hammerfall.xyz/API-Files/api/Contact/deleteContact.php', true);
+    request.open('DELETE', 'https://www.hammerfall.xyz/API-Files/api/Contact/deleteContact.php', false);
     request.setRequestHeader("Content-Type", "application/json");
     
     request.onreadystatechange = function () {

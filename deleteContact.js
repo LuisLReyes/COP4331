@@ -18,7 +18,7 @@ function deleteContact(deleteid) {
     
     var data = JSON.stringify(prepareddata); 
     
-    console.log(data);
+  //  console.log(data);
                        
     request.send(data); 
     location.reload();

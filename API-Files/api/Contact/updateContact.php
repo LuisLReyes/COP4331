@@ -1,3 +1,4 @@
+<?php
 function editContact(editid,userid) {
     var request = new XMLHttpRequest();
     
@@ -37,3 +38,4 @@ function editContact(editid,userid) {
     request.send(data);
     location.reload();
     }                             
+?>

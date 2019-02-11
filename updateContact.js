@@ -1,6 +1,6 @@
 function editContact(editid,userid) {
     var request = new XMLHttpRequest();
-    console.log("we got here!");
+    
     request.open('PUT', 'https://www.hammerfall.xyz/API-Files/api/Contact/updateContact.php', false);
     request.setRequestHeader("Content-Type", "application/json");
     
@@ -32,7 +32,7 @@ function editContact(editid,userid) {
     var data = JSON.stringify(prepareddata); 
     
     
-    console.log(data);
+  
                        
     request.send(data);
     location.reload();

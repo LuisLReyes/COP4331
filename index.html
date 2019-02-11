@@ -133,15 +133,17 @@
     
      <!-- <form action="contacts.html" method="GET" id="loginpg"> -->
     <form name="first"  id="first" onsubmit="return validateForm2()" method="post">
-        <label for="UserName">Username:</label>
-		<input id="UserName" name="UserName" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
+        <label for="UserName"></label>
+		<input type="UserName" id="ip2" placeholder = "Enter Username" name="UserName" type="text" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+">
 		<br>
-        <label for="passwordHash">Password:</label>
-        <input id="passwordHash" name="passwordHash" type="password" required minlength="4" maxlength="15">
+		<br>
+        <label for="passwordHash"></label>
+       <input type="password" id="ip2" name="passwordHash" type="password" placeholder = "Enter Password" required minlength="4" maxlength="15">
 		<br>
 		
 		<!--input type ="button" onclick="CreateAccount(this.form)"value="Signup"/-->
         <!--input type="submit" value="Submit"-->
+		<br>
         <button type='submit' class="btn btn-primary" id="button-style" >Login</button>
 		
 		<!-- Create Account Button -->

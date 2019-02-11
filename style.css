@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(230, 230, 230) !important;
+  background: linear-gradient(to right, #f09819, #edde5d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family:'Times New Roman', Times, serif;
 }
 
@@ -18,7 +18,23 @@ form {
 h1 {
   text-align: center;
 }
-
+#ip2 {
+    border-radius: 10px;
+    border: 2px solid #000;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+	text-align : center;
+	
+}
+#ip3 {
+    border-radius: 25px;
+    border: 2px solid #000;
+    padding: 20px; 
+    width: 80px;
+    height: 10px;  
+	text-align : center;
+}
 #overlay {  
   width: 30% !important;
   margin: 3% auto !important;

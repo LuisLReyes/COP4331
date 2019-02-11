@@ -22,8 +22,8 @@ function eraseCookie(name) {
 }
 function getId(addingContact){
     var token = getCookie('token');
-        console.log("cheker");
-        console.log(token);
+       // console.log("cheker");
+        //console.log(token);
         var form_data = JSON.stringify({ token:token });
    
                         
@@ -41,14 +41,14 @@ function getId(addingContact){
                         loadContacts(result.data);
                         holder = result.data;
                     }
-                console.log("ID of the currently logged in person: " + result.data.idUsers);
+            //    console.log("ID of the currently logged in person: " + result.data.idUsers);
                 // store jwt to cookie
                 return(result.data.idUsers);
             
                 },
                 error: function(xhr, resp, text){
-                console.log("NOPE!");
-                
+            //    console.log("NOPE!");
+               alert("Please login to view the page");
                 // on error, tell the user login has failed & empty the input boxes
                 
                 
@@ -56,88 +56,10 @@ function getId(addingContact){
                 });
    
 }
-function getterz()
-{
-    var token = getCookie('token');
-    console.log("cheker");
-    console.log(token);
-    var form_data = JSON.stringify({ token:token });
-    
-    
-    $.ajax({
-           url: "https://www.hammerfall.xyz/API-Files/api/User/validate.php",
-           type : "POST",
-           contentType : 'application/json',
-           data : form_data,
-           success : function(result){//response
-           
-           
-           // store jwt to cookie
-           getter2(result.data.idUsers);
-           },
-           error: function(xhr, resp, text){
-           console.log("NOPE!");
-           
-           // on error, tell the user login has failed & empty the input boxes
-           
-           
-           }
-           });
-    
 
-}
-function getter2(uerid)
-{
-    
-    
-    $.ajax({
-           url: 'https://www.hammerfall.xyz/API-Files/api/Contact/getContacts.php?Users_idUsers=' + userid,
-           type : "GET",
-           contentType : 'application/json',
-           data : {},
-           success : function(result){//response
-           
-          
-           // store jwt to cookie
-           create(result.data.idUsers);
-           },
-           error: function(xhr, resp, text){
-           console.log("NOPE!");
-           
-           // on error, tell the user login has failed & empty the input boxes
-           
-           
-           }
-           });
-    
-}
-function test()
-{
-    
-    
-    
-    
-}
 
 function populate(id)
 {
     
-    
-    
-     //  document.forms["editForm"]["firstName"].value =table['contactRow'+id][FirstName];
-//    console.log(document.forms["editForm"]["firstName"].value);
-    
     alert("PRESSED");
 }
-/*
-$(document).on('click', 'button', function () {
-               var indexRow = this.parentNode.parentNode.rowIndex;
-             var check=  document.getElementById("myTable")
-              // alert(check);
-               
-               bid = this.id; // button ID
-               contactRowId = $(this).closest('tr').attr('id'); // table row ID
-               contactRowId =  contactRowId.replace(/\D+/g, ''); //Strip away everything
-               alert(contactRowId);
-               });
-               */

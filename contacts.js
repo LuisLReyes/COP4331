@@ -1,6 +1,8 @@
+var userId;
 function loadContacts(cookieData){
   var request = new XMLHttpRequest();
   var url = 'https://www.hammerfall.xyz/API-Files/api/Contact/getContacts.php?Users_idUsers=' + cookieData.idUsers;
+  userId = cookieData.idUsers;
   console.log(url);
   request.open('GET', url , true);
   request.onload = function () {

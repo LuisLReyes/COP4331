@@ -43,6 +43,7 @@ function getId(addingContact){
                     }
                 console.log("ID of the currently logged in person: " + result.data.idUsers);
                 // store jwt to cookie
+                return(result.data.idUsers);
             
                 },
                 error: function(xhr, resp, text){

@@ -81,7 +81,7 @@
           $(document).ready(function() {
               //alert("Document Ready!");
           $(document).on("click", ".editModalButton", function () {
-              alert("button clicked!");
+              alert("User ID: " + userId);
                indexRow = this.parentNode.parentNode.rowIndex;
              check=  document.getElementById("myTable");
               // alert(check);
@@ -145,7 +145,7 @@
         }
         
         $(function(){
-          var temp = getId(false);
+          getId(false);
           //loadContacts(temp);
         });
 

@@ -1,7 +1,7 @@
-function editContact() {
+function editContact(editid,userid) {
     var request = new XMLHttpRequest();
-    
-    request.open('PUT', 'https://www.hammerfall.xyz/API-Files/api/Contact/updateContact.php', true);
+    console.log("we got here!");
+    request.open('PUT', 'https://www.hammerfall.xyz/API-Files/api/Contact/updateContact.php', false);
     request.setRequestHeader("Content-Type", "application/json");
     
     request.onreadystatechange = function () {
@@ -12,26 +12,28 @@ function editContact() {
              
         }
     };
+
+    var teststring1 = document.forms["editForm"]["firstName"].value;
+    var teststring2 = document.forms["editForm"]["lastName"].value;
+    var teststring3 = document.forms["editForm"]["email"].value;
+    var teststring4 = document.forms["editForm"]["address"].value;
+    var teststring5 = document.forms["editForm"]["phone"].value;
     
-    /*var teststring1 = document.forms["myForm"]["firstName"].value;
-    var teststring2 = document.forms["myForm"]["lastName"].value;
-    var teststring3 = document.forms["myForm"]["email"].value;
-    var teststring4 = document.forms["myForm"]["address"].value;
-    var teststring5 = document.forms["myForm"]["phone"].value; 
-    
-    var editeddata = {"FirstName": teststring1,
+    var prepareddata = {  "idContacts" :editid,
+                        "FirstName": teststring1,
                         "LastName": teststring2,
                         "Email": teststring3,
                         "Address": teststring4,
                         "PhoneNumber": teststring5,
-                        "idContacts" : 2}; */
+                        "Users_idUsers" : userid};
     
-    console.log(editeddata);
+    
     
     var data = JSON.stringify(prepareddata); 
     
     
     console.log(data);
                        
-    request.send(data); 
-    }
+    request.send(data);
+    location.reload();
+    }                             
